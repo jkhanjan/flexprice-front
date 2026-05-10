@@ -2,10 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { DataTable, ColumnDef } from './DataTable';
 import { Badge } from '@/components/ui/badge';
 
-// ---------------------------------------------------------------------------
-// Shared row type & mock data
-// ---------------------------------------------------------------------------
-
 type User = {
 	id: number;
 	name: string;
@@ -18,10 +14,6 @@ const makeRows = (count: number): User[] =>
 		name: `User ${i + 1}`,
 		status: (['active', 'inactive', 'pending'] as const)[i % 3],
 	}));
-
-// ---------------------------------------------------------------------------
-// Custom column example (extends defaults)
-// ---------------------------------------------------------------------------
 
 const customColumns: ColumnDef<User>[] = [
 	{ key: 'id', label: 'ID', sortable: true },
@@ -44,10 +36,6 @@ const customColumns: ColumnDef<User>[] = [
 		},
 	},
 ];
-
-// ---------------------------------------------------------------------------
-// Meta
-// ---------------------------------------------------------------------------
 
 const meta: Meta<typeof DataTable> = {
 	title: 'Molecules/DataTable',
@@ -73,10 +61,6 @@ const meta: Meta<typeof DataTable> = {
 export default meta;
 type Story = StoryObj<typeof DataTable>;
 
-// ---------------------------------------------------------------------------
-// 1. Default — loaded state with 20 rows
-// ---------------------------------------------------------------------------
-
 export const Default: Story = {
 	name: 'Default (loaded)',
 	args: {
@@ -86,10 +70,6 @@ export const Default: Story = {
 		pagination: false,
 	},
 };
-
-// ---------------------------------------------------------------------------
-// 2. Loading skeleton
-// ---------------------------------------------------------------------------
 
 export const Loading: Story = {
 	name: 'Loading (skeleton)',
@@ -101,10 +81,6 @@ export const Loading: Story = {
 	},
 };
 
-// ---------------------------------------------------------------------------
-// 3. Empty state
-// ---------------------------------------------------------------------------
-
 export const Empty: Story = {
 	name: 'Empty state',
 	args: {
@@ -114,10 +90,6 @@ export const Empty: Story = {
 		emptyMessage: 'No users found. Try adjusting your filters.',
 	},
 };
-
-// ---------------------------------------------------------------------------
-// 4. Pagination — client-side
-// ---------------------------------------------------------------------------
 
 export const Paginated: Story = {
 	name: 'Pagination (client-side)',
@@ -129,10 +101,6 @@ export const Paginated: Story = {
 		pageSize: 10,
 	},
 };
-
-// ---------------------------------------------------------------------------
-// 5. Virtual list — 5 000 rows
-// ---------------------------------------------------------------------------
 
 export const Virtual: Story = {
 	name: 'Virtual list (5 000 rows)',
@@ -146,10 +114,6 @@ export const Virtual: Story = {
 		pagination: false,
 	},
 };
-
-// ---------------------------------------------------------------------------
-// 6. Custom columns (extra "score" field)
-// ---------------------------------------------------------------------------
 
 type Player = { id: number; name: string; status: 'active' | 'inactive' | 'pending'; score: number };
 
